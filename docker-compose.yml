@@ -2,15 +2,33 @@ version: "3.1"
 
 services:
   mysqlpwa2021:
-    image: mysql:latest
+    image: mysql:5.7.27
     container_name: pwa2021
     environment:
-      MYSQL_ROOT_PASSWORD: 427424
-      MYSQL_DATABASE: mysqldata
+      MYSQL_ROOT_PASSWORD: pwa123
+      MYSQL_DATABASE: pwa
+      MYSQL_USER: pwauser
+      MYSQL_PASSWORD: pwa123
     ports:
       - 4000:3306
     volumes:
-      - ./mysqldata:/var/lib/mysql
+      - pwadata:/var/lib/mysql
+
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - mysqlpwa2021
+    links:  #conecta los contenedores
+      - mysqlpwa2021
+    environment:
+      PMA_PORT: 3306
+      PMA_HOST: mysqlpwa2021
+      PMA_USER: root
+      PMA_PASSWORD: pwa123
+
+    ports: 
+      - 8001:80
+
   app:
     image: yiisoftware/yii2-php:7.1-apache
     links:
@@ -19,8 +37,10 @@ services:
       - ./src/composer/cache:/root/.composer/cache:delegated
       - ./src/basic:/app:delegated 
     environment: 
-      DDBB_NAME: mysqldata
+      DDBB_NAME: pwa2021
       DDBB_HOST: mysqlpwa2021
-      DDBB_PASSWORD: 427424
+      DDBB_PASSWORD: pwa123
     ports:
       - 8000:80
+volumes:
+  pwadata:
