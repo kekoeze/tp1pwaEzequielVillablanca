@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+  mysqlpwa2021:
+    image: mysql:latest
+    container_name: pwa2021
+    environment:
+      MYSQL_ROOT_PASSWORD: 427424
+      MYSQL_DATABASE: mysqldata
+    ports:
+      - 4000:3306
+    volumes:
+      - ./mysqldata:/var/lib/mysql
+  app:
+    image: yiisoftware/yii2-php:7.1-apache
+    links:
+      - mysqlpwa2021
+    volumes:
+      - ./src/composer/cache:/root/.composer/cache:delegated
+      - ./src/basic:/app:delegated 
+    environment: 
+      DDBB_NAME: mysqldata
+      DDBB_HOST: mysqlpwa2021
+      DDBB_PASSWORD: 427424
+    ports:
+      - 8000:80
