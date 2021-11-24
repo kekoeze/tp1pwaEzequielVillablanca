@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysqlpwa2021:3306
--- Tiempo de generación: 24-11-2021 a las 20:56:13
+-- Tiempo de generación: 24-11-2021 a las 21:10:50
 -- Versión del servidor: 5.7.27
 -- Versión de PHP: 7.4.20
 
@@ -42,7 +42,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `username`, `nombre`, `apellido`, `password`, `accessToken`, `authKey`) VALUES
-(1, NULL, 'keko', NULL, '$2y$10$u0y6dmzCNFC5chia4YDzNe3QzFGLjV5eAkqoYhDtZxdxbzw0B5DUm', '$2y$10$4yPPzy1fG.5Gtq5dt9yi4ecnPNQZC6/WrN8E0NIyrGpxlSd.KoiX2', '65bb2cf7949ec5e0c2dfcb5b88477773');
+(1, NULL, 'keko', NULL, '$2y$10$u0y6dmzCNFC5chia4YDzNe3QzFGLjV5eAkqoYhDtZxdxbzw0B5DUm', '$2y$10$4yPPzy1fG.5Gtq5dt9yi4ecnPNQZC6/WrN8E0NIyrGpxlSd.KoiX2', '65bb2cf7949ec5e0c2dfcb5b88477773'),
+(2, NULL, 'keko', NULL, '$2y$10$fvzD4qGNDybqN9dyHNVqVOX05fiixFXJLYUlSFZrW7PZNoa/6CPuO', '$2y$10$gHNOYu3kBsLOrdbluoyJ3OLR5tk2/cskyxkXxWrl6ZYRkhVy1vXEi', '0e97b1f70d6333f7fa84f38f327cc1d3'),
+(3, NULL, 'keko', NULL, '$2y$10$tP19JtP5LsENmhP2B6zXhevrEWXA2KIOr72B5hprdg745.4sxW2Eu', '$2y$10$InLzxGeeweSzeez.Nj.31.pUbxCLzxl1lbECDgqHAfeRSt4DYhfke', '45aed697e344a44ade37e6107759e065');
 
 --
 -- Índices para tablas volcadas
@@ -62,7 +64,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
