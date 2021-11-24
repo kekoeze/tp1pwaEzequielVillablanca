@@ -14,13 +14,13 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '3OoYO0_b-IliP9SqrO5Qf4p32OY7nFiq',
+            'cookieValidationKey' => 'TsS8F8T88h0tOAMkeJcbL2OHe5gk3Iuf',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Usuario',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -68,7 +68,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => [($_ENV['PRODUCCION']? '127.0.0.1' : '*')],
     ];
 }
 

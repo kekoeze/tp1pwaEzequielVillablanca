@@ -40,6 +40,7 @@ services:
       DDBB_NAME: pwa2021
       DDBB_HOST: mysqlpwa2021
       DDBB_PASSWORD: pwa123
+      PRODUCCION: 0
     ports:
       - 8000:80
 volumes:
